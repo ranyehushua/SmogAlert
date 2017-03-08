@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
-
 import Search from '../components/Search';
 
 export default class LocationSearch extends Component {
