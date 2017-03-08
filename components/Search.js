@@ -12,7 +12,7 @@ const Search = (props) => (
   <View>
     <TextInput
       style={styles.input}
-      autoFocus={true}
+      autoFocus={false}
       editable={true}
       placeholder="Enter Zip Code"
       onSubmitEditing={ (event) => props.onSubmit(event.nativeEvent.text)}
