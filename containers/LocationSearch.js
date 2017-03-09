@@ -19,7 +19,7 @@ export default class LocationSearch extends Component {
   onTextSubmit = (text) => {
     this.setState({input: text});
     //Take state.input and pass it to the API call here
-    fetch('http://127.0.0.1:3030/')
+    fetch('http://127.0.0.1:3030/' + text)
       .then((data) => data.json())
       .then((data) => {
         this.setState({response: data});
