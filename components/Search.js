@@ -15,7 +15,10 @@ const Search = (props) => (
       autoFocus={false}
       editable={true}
       placeholder="Enter Zip Code"
-      onSubmitEditing={ (event) => props.onSubmit(event.nativeEvent.text)}
+      onSubmitEditing={ (event) => {
+        props.onSubmit(event.nativeEvent.text);
+        event.nativeEvent.text = '';
+      }}
     />
   </View>
 );
@@ -36,6 +39,7 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderRadius: 3,
     height: 40,
-    width: 200
+    width: 200,
+    padding: 10
   },
 });
