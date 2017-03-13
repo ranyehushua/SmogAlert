@@ -12,20 +12,13 @@ import {
   View
 } from 'react-native';
 
+import LocationSearch from './containers/LocationSearch';
+
 export default class SmogAlert extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <LocationSearch />
       </View>
     );
   }
