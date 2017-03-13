@@ -5,12 +5,13 @@ import {
   StyleSheet,
 } from 'react-native';
 import Search from '../components/Search';
+import Loading from '../components/Loading';
 
 export default class LocationSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: '',
+      searching: false,
       response: null
     };
   }
@@ -23,12 +24,15 @@ export default class LocationSearch extends Component {
 
   onTextSubmit = (text) => {
     const { navigate } = this.props.navigation;
-    this.setState({input: text});
+    this.setState({searching: true});
     //Take state.input and pass it to the API call here
     fetch('http://127.0.0.1:3030/' + text)
       .then((data) => data.json())
       .then((data) => {
-        this.setState({response: data});
+        this.setState({
+          response: data,
+          searching: false
+        });
         navigate('Results', { results: this.state.response });
       }).catch(error => console.error(error));
   }
@@ -37,7 +41,10 @@ export default class LocationSearch extends Component {
 
     return (
       <View style={styles.container}>
-        <Search onSubmit={this.onTextSubmit} />
+        {this.state.searching
+          ? <Loading text='Searching' />
+          : <Search onSubmit={this.onTextSubmit} />
+        }
       </View>
     );
   }
