@@ -15,6 +15,10 @@ export default class LocationSearch extends Component {
     };
   }
 
+  static navigationOptions = {
+    title: 'Search',
+  }
+
 
   onTextSubmit = (text) => {
     this.setState({input: text});
@@ -29,7 +33,7 @@ export default class LocationSearch extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Search onSubmit={this.onTextSubmit} />
         {this.state.response
           ? <View>
@@ -54,6 +58,8 @@ export default class LocationSearch extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
 });
